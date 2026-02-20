@@ -1,0 +1,13 @@
+; ============================================================================
+; ESINTA EMULATION — AUTHORIZED SECURITY TESTING ONLY
+;
+; Module definition file for JawDropper Stage 2 DLL
+; Exports the required functions for regsvr32.exe compatibility
+; ============================================================================
+
+LIBRARY jawdropper
+
+EXPORTS
+    DllRegisterServer   PRIVATE
+    DllUnregisterServer PRIVATE
+    DllGetClassObject   PRIVATE
