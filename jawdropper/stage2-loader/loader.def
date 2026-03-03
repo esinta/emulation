@@ -8,6 +8,6 @@
 LIBRARY jawdropper
 
 EXPORTS
-    DllRegisterServer   PRIVATE
-    DllUnregisterServer PRIVATE
-    DllGetClassObject   PRIVATE
+    DllRegisterServer
+    DllUnregisterServer
+    DllGetClassObject

@@ -287,9 +287,8 @@ def main():
     if args.serve_dir:
         serve_dir = os.path.abspath(args.serve_dir)
     else:
-        # Default: parent of c2-server directory (i.e., jawdropper/)
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        serve_dir = os.path.dirname(script_dir)
+        # Default: c2-server directory itself (where payloads/ lives)
+        serve_dir = os.path.dirname(os.path.abspath(__file__))
 
     if not os.path.isdir(serve_dir):
         print(f"Error: Serve directory does not exist: {serve_dir}")

