@@ -1,0 +1,91 @@
+{
+  "company": "Meridian Financial Group",
+  "report_title": "Q4 2025 Expense Report",
+  "submitter": "Sarah Chen, Senior Accountant",
+  "expenses": [
+    {
+      "date": "2025-10-03",
+      "category": "Travel",
+      "description": "Flight to Denver - Client Meeting",
+      "amount": 487.50,
+      "approved_by": "S. Morrison"
+    },
+    {
+      "date": "2025-10-05",
+      "category": "Meals",
+      "description": "Team dinner - Denver",
+      "amount": 156.80,
+      "approved_by": "S. Morrison"
+    },
+    {
+      "date": "2025-10-12",
+      "category": "Software",
+      "description": "Tableau Desktop License Renewal",
+      "amount": 1200.00,
+      "approved_by": "J. Park"
+    },
+    {
+      "date": "2025-10-18",
+      "category": "Office",
+      "description": "Standing desk converter",
+      "amount": 349.99,
+      "approved_by": "S. Morrison"
+    },
+    {
+      "date": "2025-11-02",
+      "category": "Travel",
+      "description": "Amtrak to NYC - Quarterly Review",
+      "amount": 89.00,
+      "approved_by": "J. Park"
+    },
+    {
+      "date": "2025-11-02",
+      "category": "Meals",
+      "description": "Client lunch - Manhattan",
+      "amount": 94.20,
+      "approved_by": "J. Park"
+    },
+    {
+      "date": "2025-11-15",
+      "category": "Training",
+      "description": "Excel Advanced Certification",
+      "amount": 599.00,
+      "approved_by": "S. Morrison"
+    },
+    {
+      "date": "2025-11-22",
+      "category": "Office",
+      "description": "Ergonomic keyboard",
+      "amount": 179.99,
+      "approved_by": "S. Morrison"
+    },
+    {
+      "date": "2025-12-01",
+      "category": "Travel",
+      "description": "Uber rides (December)",
+      "amount": 67.40,
+      "approved_by": "S. Morrison"
+    },
+    {
+      "date": "2025-12-05",
+      "category": "Software",
+      "description": "Adobe Acrobat Pro renewal",
+      "amount": 239.88,
+      "approved_by": "J. Park"
+    },
+    {
+      "date": "2025-12-10",
+      "category": "Meals",
+      "description": "Holiday team lunch",
+      "amount": 212.50,
+      "approved_by": "S. Morrison"
+    },
+    {
+      "date": "2025-12-18",
+      "category": "Office",
+      "description": "Printer toner (3-pack)",
+      "amount": 89.97,
+      "approved_by": "J. Park"
+    }
+  ]
+}

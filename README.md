@@ -52,6 +52,7 @@ Key principles:
 | Name | Malware Family | Reference | Primary Techniques | Status |
 |------|---------------|-----------|-------------------|--------|
 | [JawDropper](jawdropper/) | QakBot (Qakbot/Pinkslipbot) | [CISA AA23-242A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-242a) | T1059.001, T1218.010, T1082, T1053.005 | ✅ Available |
+| [MuddyCalc](muddycalc/) | MuddyWater POWERSTATS | [CISA AA22-055A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-055a) | T1059.005, T1547.001, T1059.001 | ✅ Available |
 
 ## Safety Mechanisms
 
@@ -65,7 +66,47 @@ C2 servers run on private RFC1918 IP addresses (e.g., `192.168.0.148`). These ad
 
 See [SAFETY.md](SAFETY.md) for our complete safety philosophy.
 
-## Quick Start: JawDropper
+## Quick Start
+
+### MuddyCalc (MuddyWater POWERSTATS)
+
+#### Prerequisites
+- macOS development machine with Python 3.x
+- `pip install openpyxl` (for spreadsheet generation)
+- Windows VM with LibreOffice Calc installed (macro security set to Low)
+
+#### Setup
+
+1. **Build the spreadsheet and encode payload** (on your Mac):
+   ```bash
+   cd muddycalc/stage1-macro
+   pip install openpyxl
+   python3 build_spreadsheet.py
+   python3 encode_payload.py
+   ```
+
+2. **Embed macro in LibreOffice** (see `muddycalc/stage1-macro/README.md` for details):
+   - Open .xlsx in LibreOffice Calc
+   - Paste generated `macro.vba` into Basic IDE
+   - Save As → .xlsm format → copy to `muddycalc/`
+
+3. **Start the C2 server** (on your Mac at 192.168.0.148):
+   ```bash
+   cd muddycalc && python3 -m http.server 8888
+   # Or with beacon logging:
+   python3 muddycalc/c2-server/server.py --port 8888
+   ```
+
+4. **On the Windows VM — download and open the spreadsheet**
+
+5. **Observe the process tree:**
+   ```
+   soffice.bin → wscript.exe → powershell.exe → cmd.exe (×6) + calc.exe
+   ```
+
+---
+
+### JawDropper (QakBot)
 
 ### Prerequisites
 - macOS or Linux development machine with `mingw-w64` installed

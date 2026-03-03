@@ -25,3 +25,12 @@ Thumbs.db
 # Payload staging (don't commit compiled payloads)
 jawdropper/c2-server/payloads/*.dll
 !jawdropper/c2-server/payloads/.gitkeep
+
+# Spreadsheet build artifacts
+*.xlsx
+*.xlsm
+*.ods
+
+# Don't commit the built spreadsheet (it contains the macro)
+muddycalc/Q4_*.xlsm
+muddycalc/Q4_*.xlsx
