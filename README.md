@@ -194,8 +194,3 @@ This repository does not contain:
 ## License
 
 Apache 2.0 — See [LICENSE](LICENSE) for details.
-
-## Contact
-
-- Security concerns: security@esinta.com
-- General inquiries: hello@esinta.com
