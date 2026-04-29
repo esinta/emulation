@@ -53,6 +53,7 @@ Key principles:
 |------|---------------|-----------|-------------------|--------|
 | [JawDropper](jawdropper/) | QakBot (Qakbot/Pinkslipbot) | [CISA AA23-242A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-242a) | T1059.001, T1218.010, T1082, T1053.005 | ✅ Available |
 | [MuddyCalc](muddycalc/) | MuddyWater POWERSTATS | [CISA AA22-055A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-055a) | T1059.005, T1547.001, T1059.001 | ✅ Available |
+| [BadDownloader](baddownloader/) | Generic Script-Kiddie Downloader | N/A (synthetic) | T1059.001, T1059.003, T1105, T1053.005 | ✅ Available |
 
 ## Safety Mechanisms
 
